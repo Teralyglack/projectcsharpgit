@@ -86,10 +86,9 @@
 ![image](https://github.com/user-attachments/assets/9eadc452-ec84-43bc-aee5-715f998a8169)
 
 Связь один к одному:
-![image](https://github.com/user-attachments/assets/4cdc878a-1ba8-4b88-9218-04b64c4394cd)
 ![image](https://github.com/user-attachments/assets/e392f86a-e784-4eab-a0f8-61b7b6123db8)
 ![image](https://github.com/user-attachments/assets/8e434572-7908-4726-bef4-163c606e876b)
-![image](https://github.com/user-attachments/assets/c609680b-c619-4221-8704-81bae1a0507e)
+
 
 
 
