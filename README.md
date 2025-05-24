@@ -61,3 +61,49 @@
  Как эти диаграммы помогают понять архитектуру вашего приложения?
 За счёт этих диаграмм у меня есть чёткое разделение ответственности проекта
 
+
+
+Создание базы данных, добавлено 9 таблиц:
+
+![Снимок экрана 2025-05-24 053128](https://github.com/user-attachments/assets/eb684e0e-0d89-4d01-8a3d-857c09794274)
+
+Указаны первичные и внешние ключи для каждой из них:
+![Снимок экрана 2025-05-24 053305](https://github.com/user-attachments/assets/073d011b-3c14-43fa-ac1c-0c213fa66a10)
+![image](https://github.com/user-attachments/assets/8466f9c9-ef4e-4df7-988e-eaa946e7da97)
+![image](https://github.com/user-attachments/assets/ef048bf2-80cf-4289-a9f9-3cdeb6d7c740)
+![image](https://github.com/user-attachments/assets/9422934f-7fa0-4e43-b401-4fd269f0ccc4)
+![image](https://github.com/user-attachments/assets/28c14613-99f3-45fb-8934-fc185792eeaa)
+![image](https://github.com/user-attachments/assets/43a8ddc3-e894-407e-ba98-24e34be9624d)
+![image](https://github.com/user-attachments/assets/2fdd6f07-6f48-490d-8a4e-76c367ca6d89)
+![image](https://github.com/user-attachments/assets/9d1abb0a-b144-41b7-ad4a-2734eac25ac6)
+![image](https://github.com/user-attachments/assets/c52cb7c1-1012-4cd2-98bf-098963e8576f)
+
+Связь многие ко многим:
+![image](https://github.com/user-attachments/assets/b8f74510-b8f2-477d-babd-ebc45afbcf1a)
+![image](https://github.com/user-attachments/assets/3dcac940-d97b-474c-ac94-ed8a2bf43588)
+
+Связь один ко многим:
+![image](https://github.com/user-attachments/assets/9eadc452-ec84-43bc-aee5-715f998a8169)
+
+Связь один к одному:
+![image](https://github.com/user-attachments/assets/4cdc878a-1ba8-4b88-9218-04b64c4394cd)
+![image](https://github.com/user-attachments/assets/e392f86a-e784-4eab-a0f8-61b7b6123db8)
+![image](https://github.com/user-attachments/assets/8e434572-7908-4726-bef4-163c606e876b)
+![image](https://github.com/user-attachments/assets/c609680b-c619-4221-8704-81bae1a0507e)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
