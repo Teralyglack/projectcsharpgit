@@ -1,11 +1,7 @@
-﻿using Npgsql;
-using System;
-
-class Program
+﻿class Program
 {
     static void Main()
     {
-        // Строка подключения к вашей базе данных PostgreSQL
         string mydatabase = "Host=localhost;Database=SiensJournal;Username=postgres;Password=123";
 
         while (true)
@@ -15,119 +11,59 @@ class Program
             Console.WriteLine("1. Просмотреть все таблицы");
             Console.WriteLine("2. Найти определённую таблицу");
             Console.WriteLine("3. Добавить таблицу");
-            Console.WriteLine("4. Выход");
+            Console.WriteLine("4. Обновить записи в таблице");
+            Console.WriteLine("5. Удалить таблицу");
+            Console.WriteLine("6. Поиска столбца в таблице");
+            Console.WriteLine("7. Выход");
             Console.Write("Введите номер команды: ");
-
+          
             string input = Console.ReadLine();
-
+          
             switch (input)
             {
                 case "1":
-                    DisplayTables(mydatabase);
+                    // Создаем объект и вызываем метод
+                    var display = new DisplayTables(mydatabase);
+                    display.Execute();
                     break;
+                   
+
                 case "2":
-                    FindTable(mydatabase);
+                    var find = new FindTable(mydatabase);
+                    find.Execute();
                     break;
+                   
+
                 case "3":
-                    AddTable(mydatabase);
+                    var add = new AddTable(mydatabase);
+                    add.Execute();
                     break;
+
                 case "4":
+                    var update = new UpdateTable(mydatabase);
+                    update.Execute();
+                    break;
+
+                case "5":
+                    var delete = new DeleteTableByName(mydatabase);
+                    delete.Execute();
+                    break;
+                case "6":
+                    var FindColumns = new FindColumnsInTable(mydatabase);
+                    FindColumns.Execute();
+                    break;
+
+                case "7":
                     Console.WriteLine("Выход из программы...");
                     return;
+                   
+
                 default:
                     Console.WriteLine("Некорректный ввод. Нажмите любую клавишу для повторения.");
                     Console.ReadKey();
                     break;
             }
         }
-    }
-
-    static void DisplayTables(string connectionString)
-    {
-        using (var conn = new NpgsqlConnection(connectionString))
-        {
-            conn.Open();
-            using (var cmd = new NpgsqlCommand("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';", conn))
-            using (var reader = cmd.ExecuteReader())
-            {
-                Console.WriteLine("Список таблиц:");
-                while (reader.Read())
-                {
-                    Console.WriteLine(reader.GetString(0));
-                }
-            }
-        }
-        Console.WriteLine("Нажмите любую клавишу для продолжения...");
-        Console.ReadKey();
-    }
-
-    static void FindTable(string connectionString)
-    {
-        Console.Write("Введите имя таблицы для поиска: ");
-        string tableName = Console.ReadLine();
-        using (var conn = new NpgsqlConnection(connectionString))
-        {
-            conn.Open();
-            using (var cmd = new NpgsqlCommand("SELECT table_name FROM information_schema.tables WHERE table_name = @tableName AND table_schema = 'public';", conn))
-            {
-                cmd.Parameters.AddWithValue("tableName", tableName);
-                var result = cmd.ExecuteScalar();
-                if (result != null)
-                {
-                    Console.WriteLine($"Таблица '{tableName}' найдена.");
-                    DisplayTableColumns(conn, tableName);
-                }
-                else
-                {
-                    Console.WriteLine($"Таблица '{tableName}' не найдена.");
-                }
-            }
-        }
-
-        static void DisplayTableColumns(NpgsqlConnection conn, string tableName)
-        {
-            using (var cmd = new NpgsqlCommand("SELECT column_name FROM information_schema.columns WHERE table_name = @tableName;", conn))
-            {
-                cmd.Parameters.AddWithValue("tableName", tableName);
-                using (var reader = cmd.ExecuteReader())
-                {
-                    Console.WriteLine($"Столбцы таблицы '{tableName}':");
-                    while (reader.Read())
-                    {
-                        Console.WriteLine(reader.GetString(0));
-                    }
-                }
-            }
-        }
-
-        Console.WriteLine("Нажмите любую клавишу для продолжения...");
-        Console.ReadKey();
-    }
-
-    static void AddTable(string connectionString)
-    {
-        Console.Write("Введите имя новой таблицы: ");
-        string tableName = Console.ReadLine();
-        Console.Write("Введите определение столбцов (например, 'id SERIAL PRIMARY KEY, name VARCHAR(100)'): ");
-        string columnsDefinition = Console.ReadLine();
-        using (var conn = new NpgsqlConnection(connectionString))
-        {
-            conn.Open();
-            using (var cmd = new NpgsqlCommand($"CREATE TABLE IF NOT EXISTS \"{tableName}\" ({columnsDefinition});", conn))
-            {
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                    Console.WriteLine($"Таблица '{tableName}' успешно добавлена.");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Ошибка при добавлении таблицы: {ex.Message}");
-                }
-            }
-        }
-        Console.WriteLine("Нажмите любую клавишу для продолжения...");
-        Console.ReadKey();
     }
 }
 
