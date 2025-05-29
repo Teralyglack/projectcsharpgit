@@ -1,5 +1,5 @@
-﻿using System;
-
+﻿using Npgsql;
+using System;
 
 namespace Services
 {
@@ -34,7 +34,7 @@ namespace Services
         {
             Console.Write("Введите имя таблицы: ");
             string name = Console.ReadLine();
-           
+
             if (_findTable.Exists(name))
             {
                 Console.WriteLine($"Таблица '{name}' найдена.");
@@ -48,34 +48,17 @@ namespace Services
         }
 
 
-        public void AddNewTable()
-        {
-            Console.Write("Введите имя новой таблицы: ");
-            string name = Console.ReadLine();
-          
+        public void AddNewTable() {
 
-            if (_findTable.Exists(name))
-            {
-                Console.WriteLine("Таблица уже существует.");
-                Pause();
-                return;
-            }
-          
-
-            Console.Write("Введите определение столбцов: ");
-            string columns = Console.ReadLine();
-          
-
-            _addTable.Execute(name, columns);
-            Pause();
-        }
+            _addTable.Execute();
+        }  
 
 
         public void UpdateRecord()
         {
             Console.Write("Введите имя таблицы: ");
             string tableName = Console.ReadLine();
-         
+
 
             if (!_findTable.Exists(tableName))
             {
@@ -83,7 +66,7 @@ namespace Services
                 Pause();
                 return;
             }
-         
+
             Console.Write("Поле для фильтрации: ");
             string filterCol = Console.ReadLine();
             Console.Write("Значение фильтра: ");
@@ -92,7 +75,7 @@ namespace Services
             string updateCol = Console.ReadLine();
             Console.Write("Новое значение: ");
             string newVal = Console.ReadLine();
-           
+
 
             _updateTable.Execute(tableName, filterCol, filterVal, updateCol, newVal);
             Pause();
@@ -101,18 +84,7 @@ namespace Services
 
         public void DeleteTable()
         {
-            Console.Write("Введите имя таблицы для удаления: ");
-            string name = Console.ReadLine();
-       
-            if (!_findTable.Exists(name))
-            {
-                Console.WriteLine("Таблица не найдена.");
-                Pause();
-                return;
-            }
-          
-
-            _deleteTable.Execute(name);
+            _deleteTable.Execute();
             Pause();
         }
 
@@ -120,7 +92,7 @@ namespace Services
         {
             Console.Write("Введите имя таблицы для просмотра столбцов: ");
             string name = Console.ReadLine();
-         
+
 
             if (!_findTable.Exists(name))
             {
@@ -128,7 +100,7 @@ namespace Services
                 Pause();
                 return;
             }
-          
+
 
             _findColumns.Execute(name);
             Pause();

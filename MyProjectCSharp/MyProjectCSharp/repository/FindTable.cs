@@ -3,8 +3,42 @@ using Npgsql;
 
 public class FindTable
 {
+
     private readonly string _connectionString;
 
+    public bool Exists(string tableName)
+    {
+        return true;
+    }
+  public void DisplayColumns(string tableName)
+    {
+        using (var conn = new NpgsqlConnection(_connectionString))
+        {
+            conn.Open();
+            string sql = @"
+            SELECT column_name 
+            FROM information_schema.columns 
+            WHERE table_name = @tableName 
+              AND table_schema = 'public'
+            ORDER BY ordinal_position;";
+
+            using (var cmd = new NpgsqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue( tableName);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    Console.WriteLine($"Столбцы таблицы '{tableName}':");
+                    while (reader.Read())
+                    {
+                        Console.WriteLine($"- {reader.GetString(0)}");
+                    }
+                }
+            }
+        }
+    }
+
+    
 
     public FindTable(string connectionString)
     {

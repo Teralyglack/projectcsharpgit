@@ -6,7 +6,10 @@ public class FindColumnsInTable
 {
     private readonly string _connectionString;
 
+    public void Execute(string tableName)
+    {
 
+    }
     public FindColumnsInTable(string connectionString)
     {
         _connectionString = connectionString;

@@ -5,7 +5,17 @@ public class UpdateTable
 {
     private readonly string _connectionString;
 
+    public void Execute(string tableName, string columnsDefinition, string filtVal, string updCol, string newV) { }
 
+    public void Execute(string tableName, string columnsDefinition)
+    {
+
+    }
+
+    public void Execute(string tableName)
+    {
+
+    }
     public UpdateTable(string connectionString)
     {
         _connectionString = connectionString;

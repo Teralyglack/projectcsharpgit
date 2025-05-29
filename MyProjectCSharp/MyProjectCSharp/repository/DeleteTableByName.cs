@@ -6,7 +6,17 @@ public class DeleteTableByName
 {
     private readonly string _connectionString;
 
+    public void Execute(string tableName, string columnsDefinition, string filtVal, string updCol, string newV) { }
 
+    public void Execute(string tableName, string columnsDefinition)
+    {
+
+    }
+
+    public void Execute(string tableName)
+    {
+
+    }
     public DeleteTableByName(string connectionString)
     {
         _connectionString = connectionString;

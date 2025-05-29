@@ -1,8 +1,22 @@
 ﻿using System;
 using Npgsql;
 
-public class AddTable
-{
+public class AddTable {
+
+    public void Execute(string tableName, string columnsDefinition, string filtVal, string updCol, string newV) { }
+
+    public void Execute(string tableName, string columnsDefinition)
+    {
+        
+    }
+
+    public void Execute(string tableName)
+    {
+
+    }
+
+
+
     private readonly string _connectionString;
 
     public AddTable(string connectionString)
