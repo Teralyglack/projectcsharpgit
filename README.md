@@ -89,6 +89,8 @@
 ![image](https://github.com/user-attachments/assets/e392f86a-e784-4eab-a0f8-61b7b6123db8)
 ![image](https://github.com/user-attachments/assets/8e434572-7908-4726-bef4-163c606e876b)
 
+Презентация:
+https://docs.google.com/presentation/d/1aGoDTXy6NGl8I6gVd2awlcRtaR8LrRFZ1cuTBIRcQcM/edit?usp=sharing
 
 
 
