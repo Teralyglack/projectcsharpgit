@@ -120,7 +120,8 @@ FindColumns() - Поиск столбцов в таблице
 
 ![image](https://github.com/user-attachments/assets/679e4e86-a4d0-4386-b305-a151b3c9a28c)
 
-
+Презентация:
+https://docs.google.com/presentation/d/1aGoDTXy6NGl8I6gVd2awlcRtaR8LrRFZ1cuTBIRcQcM/edit?usp=sharing
 
 
 
